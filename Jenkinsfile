@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'ssh deploy-user@49.50.69.229 "source env/bin/activate; \
+                sh 'ssh -o StrictHostKeyChecking=no deploy-user@49.50.69.229 "source env/bin/activate; \
                 cd ciCdDemo; \
                 git pull origin main; \
                 pip install -r requirements.txt --no-warn-script-location; \
