@@ -13,7 +13,14 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'echo Deploying' 
+                sh 'ssh deploy-user@49.50.69.229 "source env/bin/activate; \
+                cd ciCdDemo; \
+                git pull origin main; \
+                pip install -r requirements.txt --no-warn-script-location; \
+                python manage.py migrate; \
+                deactivate; \
+                sudo systemctl restart nginx; \
+                sudo systemctl restart gunicorn "' 
             }
         }
     }
