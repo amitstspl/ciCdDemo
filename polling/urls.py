@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+import debug_toolbar
 from django.views.generic import RedirectView
 from polls import views
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='polls/', permanent=True)),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
