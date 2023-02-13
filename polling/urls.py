@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-import debug_toolbar
 from django.views.generic import RedirectView
 from polls import views
 

@@ -32,7 +32,7 @@ pipeline {
                 message "Should be deployed to production?"
                 ok "Yes, deploy to prod!"
             }
-            
+
             steps {
                 sh 'ssh -o StrictHostKeyChecking=no deploy-user@49.50.69.229 "source env/bin/activate; \
                 cd ciCdDemo; \
